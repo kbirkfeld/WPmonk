@@ -18,7 +18,7 @@ class BlogPost {
             'Content' => (string)$item->content[0],
             //Enter specific BlogId here:
             'BlogId' => 4505,
-            'DateTimePosted' => (string)$item->post_date[0]/*'2015-01-20 21:47:00'*/
+            'DateTimePosted' => (string)$item->post_date[0]
         );
     }
     
