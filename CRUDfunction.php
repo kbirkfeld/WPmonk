@@ -48,8 +48,8 @@ function post_blogpost($data)
     curl_close($ch);
     
     $result_array = json_decode($result, true);
-    if  ($result['Error']) {
-       throw new Exception($result['Error']);
+    if  ($result_array['error']) {
+       throw new Exception($result_array['error']);
     }
     return $result_array;
     
