@@ -7,6 +7,7 @@ class BlogPost {
     
     /*Converts API properties into array
     * 
+    * @param obj $item contains blogpost data
     * 
     * @return array of properties 
     */
@@ -22,10 +23,11 @@ class BlogPost {
         );
     }
     
-    /*JSON encodes data and posts to API
-    * @param string $url contains API url
-    * @param array $content contains WP data
-    * @return $result_array  
+    /*Loops through array of blog posts
+    * 
+    * @param string $fields contains blogpost fields
+    * 
+    * @return $convertedItems  
     */
     
     public static function convert_wp_blogpost($fields) {
@@ -44,10 +46,10 @@ class BlogPost {
 //        }
     }
 
-    /*JSON encodes data and posts to API
-    * @param string $url contains API url
-    * @param array $content contains WP data
-    * @return $result_array  
+    /*Used on import.php to create blogposts
+    * @param string $blogId is hardcoded blogId
+    * @param array $content contains blogpost data
+    * @return $post  
     */
     
     public static function create($blogId, $content) {

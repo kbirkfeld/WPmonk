@@ -11,13 +11,14 @@ class Blog {
     'DateTimeModified' => '2015-01-20 21:47:00'
     );
     
-    /*JSON encodes data and posts to API
-    * @param string $url contains API url
-    * @param array $content contains WP data
-    * @return $result_array  
+    /*Posts a new blog to the API
+    *
+    * @param array $content contains blog specific data
+    * 
+    * @return $post 
     */
     
-    public static function create($blogId, $wpPost) {
+    public static function create(/*$blogId,*/$content) {
         $url = Blog::baseUrl;
         $post = Tools::post($url, $content);
         return $post;

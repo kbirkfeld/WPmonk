@@ -1,9 +1,9 @@
 <?php
 
 /*Reads WP xml file and parses data
-* @param string $wp formats WP data properly
-* @param string $string contains WP data
-* @param object $item contains WP Blog/Post data
+* @var string $wp formats WP data properly
+* @var string $string contains WP data
+* @var object $item contains WP Blog/Post data
 * @return $item 
 */
 
