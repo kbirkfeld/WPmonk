@@ -40,5 +40,15 @@ class Tools {
         return $result_array;
     }
     
+    public static function getAllBlogsAsOptions() {
+        $options = array (
+            4501 => 'Dog',
+            4139 => 'Lizard',
+            4505 => 'Bird' 
+        );
+        return $options;
+        
+    }
+    
 }
 ?>

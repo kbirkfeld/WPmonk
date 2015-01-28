@@ -12,13 +12,14 @@ class BlogPost {
     * @return array of properties 
     */
     
-    public static function convert_item_to_array($item) {
+    public static function convert_item_to_array($item, $blogId) {
         return array(
             'Name' => (string)$item->title[0],
             'Slug' => str_replace(" ", "-", strtolower((string)$item->content[0])),
             'Content' => (string)$item->content[0],
             //Enter specific BlogId here:
-            'BlogId' => 4505,
+//          'BlogId' => 4505,
+            'BlogId' => $blogId,
             'DateTimePosted' => (string)$item->post_date[0]
         );
     }
@@ -30,10 +31,10 @@ class BlogPost {
     * @return $convertedItems  
     */
     
-    public static function convert_wp_blogpost($fields) {
+    public static function convert_wp_blogpost($fields, $blogId) {
        $convertedItems = array();
         foreach ($fields as $field) {
-            $convertedItems[] = self::convert_item_to_array($field);
+            $convertedItems[] = self::convert_item_to_array($field, $blogId);
         }
         return $convertedItems;
 

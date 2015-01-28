@@ -7,8 +7,8 @@
 * @return $item 
 */
 
-function getWpPosts() {
-$wp = file_get_contents('WPmonk.xml');
+function getWpPosts($fileName) {
+$wp = file_get_contents($fileName);
 $wp = str_replace("content:encoded>","content>",$wp);
 $wp = str_replace("wp:", "", $wp);
 
