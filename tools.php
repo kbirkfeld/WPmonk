@@ -40,6 +40,11 @@ class Tools {
         return $result_array;
     }
     
+    /*Gives a dropdown list of all Blogs
+    * 
+    * @return $options containing all Blogs with BlogId  
+    */
+    
     public static function getAllBlogsAsOptions() {
         $options = array (
             4501 => 'Dog',

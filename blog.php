@@ -18,7 +18,7 @@ class Blog {
     * @return $post 
     */
     
-    public static function create(/*$blogId,*/$content) {
+    public static function create($content) {
         $url = Blog::baseUrl;
         $post = Tools::post($url, $content);
         return $post;
