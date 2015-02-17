@@ -17,13 +17,16 @@ class Tools {
         }   
 
         $data_string = json_encode($content); 
+//        print_r($data_string);
+//        die();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'X-AUTH-TOKEN: P1KdvgA5ONXrzu5jHw7YrKTDdWv6wVVk_305ed3251218d3906d3fddc10aa5ceac402bf2ff14aa',
             'Content-Type: application/json',                                                                                
             'Content-Length: ' . strlen($data_string))
         );
-
+        
+        
         //post request
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");  
         curl_setopt($ch, CURLOPT_POST, true);
@@ -34,6 +37,7 @@ class Tools {
         curl_close($ch);
 
         $result_array = json_decode($result, true);
+
         if  (isset($result_array['error'])) {
            throw new Exception($result_array['error']);
         }

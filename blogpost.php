@@ -13,16 +13,21 @@ class BlogPost {
     */
     
     public static function convert_item_to_array($item, $blogId) {
-        return array(
-            'Name' => (string)$item->title,
-            'Slug' => str_replace(" ", "-", strtolower((string)$item->content)),
-            'Content' => (string)$item->content,
-            'BlogId' => $blogId,
-            'Associations' => array(
-                'Category' => (string)$item->category->category_nicename
-            ),
-            'DateTimePosted' => (string)$item->post_date
+        $convertedArray = array(
+            "Name" => (string)$item->title,
+            "Slug" => str_replace(" ", "-", str_replace("_", "-", strtolower((string)$item->title))),
+            "Content" => (string)$item->content,
+            "BlogId" => $blogId,
+            "PublishFlag" => "P",
+            "DateTimePosted" => (string)$item->post_date
         );
+        
+        if ($item->category) {
+            $convertedArray['Associations'] = array();
+            $convertedArray['Associations']['Category'] = array((string)$item->category);
+        }
+        
+        return $convertedArray;
     }
     
     /*Loops through array of blog posts
