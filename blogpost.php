@@ -14,13 +14,14 @@ class BlogPost {
     
     public static function convert_item_to_array($item, $blogId) {
         return array(
-            'Name' => (string)$item->title[0],
-            'Slug' => str_replace(" ", "-", strtolower((string)$item->content[0])),
-            'Content' => (string)$item->content[0],
-            //Enter specific BlogId here:
-//          'BlogId' => 4505,
+            'Name' => (string)$item->title,
+            'Slug' => str_replace(" ", "-", strtolower((string)$item->content)),
+            'Content' => (string)$item->content,
             'BlogId' => $blogId,
-            'DateTimePosted' => (string)$item->post_date[0]
+            'Associations' => array(
+                'Category' => (string)$item->category->category_nicename
+            ),
+            'DateTimePosted' => (string)$item->post_date
         );
     }
     
@@ -37,19 +38,13 @@ class BlogPost {
             $convertedItems[] = self::convert_item_to_array($field, $blogId);
         }
         return $convertedItems;
-
-//        foreach ($convertedItems as $convertedItem) {
-//            try {
-//                $new_post = post_blogpost($convertedItem);
-//            } catch (Exception $ex) {
-//                print_r($ex);
-//            }
-//        }
     }
 
     /*Used on import.php to create blogposts
+    * 
     * @param string $blogId is hardcoded blogId
     * @param array $content contains blogpost data
+    * 
     * @return $post  
     */
     

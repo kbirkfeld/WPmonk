@@ -16,7 +16,7 @@ foreach($convertedItems as $convertedItem) {
 if (isset($posts)){
     echo "Your import was successful";
 } else {
-    echo "Please try your import again";
+    header('Location: import.php');
 }
 
 ?>
