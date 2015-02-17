@@ -17,8 +17,6 @@ class Tools {
         }   
 
         $data_string = json_encode($content); 
-//        print_r($data_string);
-//        die();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'X-AUTH-TOKEN: P1KdvgA5ONXrzu5jHw7YrKTDdWv6wVVk_305ed3251218d3906d3fddc10aa5ceac402bf2ff14aa',
